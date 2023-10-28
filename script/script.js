@@ -99,20 +99,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function getSlideNext() {
-        if (randomNum < 20) {
-            randomNum++;
-        } else {
-            randomNum = 1;
-        }
+        let num = parseInt(randomNum, 10); // Преобразуем строку в число с основанием 10
+        num = (num % 20) + 1; // Выполняем операции с числом
+        randomNum = num.toString().padStart(2, '0'); // Преобразуем число обратно в строку с добавлением нулей
         setBg();
     }
 
     function getSlidePrev() {
-        if (randomNum > 1) {
-            randomNum--;
-        } else {
-            randomNum = 20;
-        }
+        let num = parseInt(randomNum, 10);
+        num = (num - 2 + 20) % 20 + 1; // Выполняем операции с числом
+        randomNum = num.toString().padStart(2, '0');
         setBg();
     }
 
